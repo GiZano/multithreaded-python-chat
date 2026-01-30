@@ -4,7 +4,7 @@ import os
 # 1. Retrieve the current directory path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # 2. Navigate two levels up to locate the project root directory
-root_dir = os.path.abspath(os.path.join(current_dir, '..', '..'))
+root_dir = os.path.abspath(os.path.join(current_dir, '..'))
 # 3. Append the root directory to the system path to resolve shared modules
 sys.path.append(root_dir)
 

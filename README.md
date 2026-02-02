@@ -3,6 +3,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
 [![Docker Support](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
 [![Server Capacity](https://img.shields.io/badge/Capacity-%3E6000_Clients-brightgreen?style=for-the-badge)](https://github.com/riccard00731/ChatBot)
+![Network](https://img.shields.io/badge/Network-Local%20Area%20(LAN)-orange?style=for-the-badge&logo=semantic-web&logoColor=white)
 
 An ultra-lightweight, high-performance, on-premise chat solution designed for secure communication within local networks. This system ensures data privacy by keeping traffic internal to the local network.
 

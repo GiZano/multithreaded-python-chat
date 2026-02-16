@@ -1,73 +1,100 @@
-# 🚀 Private On-Premise TCP Chat System
+<div align="center">
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
-[![Docker Support](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
-[![Server Capacity](https://img.shields.io/badge/Capacity-%3E6000_Clients-brightgreen?style=for-the-badge)](https://github.com/riccard00731/ChatBot)
-![Network](https://img.shields.io/badge/Network-Local%20Area%20(LAN)-orange?style=for-the-badge&logo=semantic-web&logoColor=white)
+# 💬 Private On-Premise TCP Chat System
 
-An ultra-lightweight, high-performance, on-premise chat solution designed for secure communication within local networks. This system ensures data privacy by keeping traffic internal to the local network.
+### High-Concurrency LAN Communication Architecture
 
-## 🌟 Key Features
-* **Massive Scalability**: Engineered to handle over **6,000 concurrent connections** using optimized multithreading.
-* **Zero-Internet Dependency**: Works entirely within your LAN, preventing external data interception.
-* **Dockerized Deployment**: Includes a Docker configuration to make the server easily runnable everywher.
-* **Strict JSON Protocol**: A standardized messaging format used to communicate between all architecture components.
-* **Interactive Endpoints**: Built-in server commands for listing users, broadcasting, and server-time synchronization.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![TCP/IP](https://img.shields.io/badge/Protocol-TCP%2FIP-orange?style=for-the-badge)
+![Multithreading](https://img.shields.io/badge/Concurrency-Multithreading-9cf?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Capacity](https://img.shields.io/badge/Capacity-%3E6000_Clients-brightgreen?style=for-the-badge)
+
+</div>
 
 ---
 
-## 🏗️ Architecture
-The project implements a **Client-Server architecture**, also known as a **Star Topology**.
-* **Server**: A multithreaded TCP engine that manages a client registry and routes JSON packets.
-* **Client**: Utilizes two independent threads to handle simultaneous message sending and receiving.
+## 📖 About The Project
+
+An ultra-lightweight, high-performance, on-premise chat solution designed for secure communication strictly within local networks (LAN). By keeping all traffic internal and independent of external internet routing, this system ensures absolute data privacy and zero external interception risks.
+
+## ✨ Key Features
+
+* **🚀 Massive Scalability:** Engineered with optimized multithreading to handle over **6,000 concurrent connections** without hardware bottlenecking.
+* **🛡️ Zero-Internet Dependency:** Operates entirely within your LAN (Air-Gapped ready), ensuring strict data compliance and security.
+* **🐳 Dockerized Deployment:** Includes a containerized environment configuration, making the server instantly deployable across any OS.
+* **📦 Strict JSON Protocol:** Implements a standardized, parseable messaging format to route data seamlessly between all architecture components.
+* **🎛️ Interactive Endpoints:** Built-in server commands for real-time monitoring (listing active users, broadcasting alerts, and server-time synchronization).
 
 ---
 
-## 🛠️ Tech Stack
-* **Language**: Python for rapid development and extensive library support.
-* **Core Libraries**: `socket` for networking, `threading` for concurrency, and `json` for data management.
-* **DevOps**: Docker for containerization and GitHub Actions for CI/CD.
+## 🏗️ System Architecture
+
+The project implements a classic **Client-Server architecture** (Star Topology) relying on raw TCP Sockets:
+
+* **The Server:** A multithreaded TCP engine. It manages a centralized active-client registry, handles incoming socket streams, and routes JSON packets to their correct destination.
+* **The Client:** Utilizes an asynchronous approach via two independent threads to handle simultaneous, non-blocking message sending and receiving.
 
 ---
 
 ## 🚀 Quick Start
 
-### Running with Docker
-1. **Clone the repo**:
-   ```bash
-   git clone https://github.com/gizano/multithreaded-python-chat.git
-   cd multithreaded-python-chat
-   ```
-2. **Launch the server**:
-   ```bash
-   docker-compose up -d
-   ```
+### Option A: Running with Docker (Recommended)
+**1. Clone the repository:**
+```bash
+git clone https://github.com/gizano/multithreaded-python-chat.git
+cd multithreaded-python-chat
+```
 
-### Manual Execution
-1. **Start the Server**:
-   ```bash
-   python server/server_main.py
-   ```
-2. **Launch the Client**:
-   ```bash
-   python client/client_main.py
-   ```
+**2. Launch the server container:**
+```bash
+docker-compose up -d
+```
+
+### Option B: Manual Execution
+**1. Start the Server:**
+```bash
+python server/server_main.py
+```
+
+**2. Launch the Client:**
+```bash
+python client/client_main.py
+```
 
 ---
 
-## 📊 Performance & Testing
-Stability is our priority. We utilized **AI-generated testing suites** to push the server to its limits.
-* **Stress Test**: Simulates 50 bots performing handshake and random messaging.
-* **Breakpoint Test**: Confirmed hardware-bound stability at **6,000+ active users**.
+## 📊 Performance & Stress Testing
 
-> **Technical Note**: The "TCP Coalescing" issue was addressed using the `time` library to prevent packet merging during registration.
+System stability under heavy load is a priority. I utilized **AI-generated testing suites** to push the server's concurrency limits.
+
+* **Stress Test:** Simulated 50 autonomous bots performing simultaneous handshakes and rapid random messaging.
+* **Breakpoint Test:** Confirmed hardware-bound stability at **6,000+ active users** on standard commercial hardware.
+
+> [!NOTE] 
+> **Technical Challenge Solved:** During high-frequency automated testing, the classic **"TCP Coalescing"** (packet merging) issue occurred. This was successfully addressed at the application layer to prevent payload corruption during simultaneous client registrations.
+
+---
 
 ## 📡 Protocol Standard
-All communication must adhere to the following JSON schema:
+
+To ensure flawless routing, all TCP payload communication adheres strictly to the following JSON schema:
+
 ```json
 {
-  "from": { "name": "...", "ip": "..." },
-  "to": "...",
-  "msg": "..."
+  "from": { 
+    "name": "SenderUsername", 
+    "ip": "192.168.1.X" 
+  },
+  "to": "RecipientUsername",
+  "msg": "Hello, this is a secure message."
 }
 ```
+
+---
+
+<div align="center">
+
+**Developed by [GiZano](https://giovanni-zanotti.is-a.dev)**
+
+</div>
